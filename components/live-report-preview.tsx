@@ -1,8 +1,6 @@
 "use client"
 
-import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -25,6 +23,8 @@ import { cn } from "@/lib/utils"
 import type { ProjectInfo, ChecklistItem } from "@/types/report-types"
 import type { SuggestionWithImages } from "./suggestions-with-images"
 import type { ImageAttachment } from "./image-upload"
+import { Button } from "./ui/button"
+import { useState } from "react"
 
 interface LiveReportPreviewProps {
   reportTitle: string
@@ -423,7 +423,7 @@ export function LiveReportPreview({
   }
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-80 z-40">
+    <div className="fixed right-4 top-20 bottom-4 w-72 z-40">
       <Card className="h-full flex flex-col shadow-lg border-2">
         <CardHeader className="pb-2 flex-shrink-0">
           <div className="flex items-center justify-between">

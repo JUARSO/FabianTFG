@@ -14,6 +14,7 @@ import { ReportSummaryModal } from "@/components/report-summary-modal"
 import { LiveReportPreview } from "@/components/live-report-preview"
 import type { ProjectInfo, ChecklistItem } from "@/types/report-types"
 import { ImageUpload, type ImageAttachment } from "@/components/image-upload"
+import { useMediaQuery } from "@/hooks/use-media-query"
 
 const vigasChecklistItems: ChecklistItem[] = [
   {
@@ -101,6 +102,9 @@ export default function VigasReportPage() {
   const [observations, setObservations] = useState<string[]>([])
   const [images, setImages] = useState<ImageAttachment[]>([])
 
+  // Detectar si estamos en móvil
+  const isDesktop = useMediaQuery("(min-width: 1024px)")
+
   const formSections = [
     {
       id: "project-info",
@@ -141,20 +145,22 @@ export default function VigasReportPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      {/* Live Preview Panel */}
-      <LiveReportPreview
-        reportTitle="Informe de Inspección - Vigas"
-        projectInfo={projectInfo}
-        specificConfig={vigasConfig}
-        checklist={checklist}
-        suggestions={suggestions}
-        observations={observations}
-        images={images}
-      />
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      {/* Live Preview Panel - Solo visible en desktop */}
+      {isDesktop && (
+        <LiveReportPreview
+          reportTitle="Informe de Inspección - Vigas"
+          projectInfo={projectInfo}
+          specificConfig={vigasConfig}
+          checklist={checklist}
+          suggestions={suggestions}
+          observations={observations}
+          images={images}
+        />
+      )}
 
-      <div className="max-w-6xl mx-auto pr-96">
-        <div className="flex items-center justify-between mb-6">
+      <div className={`max-w-6xl mx-auto ${isDesktop ? "pr-80" : ""}`}>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div className="flex items-center space-x-4">
             <Link href="/">
               <Button variant="outline" size="sm">
@@ -162,7 +168,7 @@ export default function VigasReportPage() {
                 Volver
               </Button>
             </Link>
-            <h1 className="text-3xl font-bold text-gray-900">Informe de Inspección - Vigas</h1>
+            <h1 className="text-xl sm:text-3xl font-bold text-gray-900">Informe de Inspección - Vigas</h1>
           </div>
           <div className="flex items-center gap-2">
             <ReportSummaryModal
@@ -195,14 +201,14 @@ export default function VigasReportPage() {
         <div className="space-y-6">
           {formSections.map((section) => (
             <div key={section.id} className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-bold mb-4">{section.title}</h2>
               {section.component}
             </div>
           ))}
         </div>
 
         {/* Bottom actions */}
-        <div className="mt-8 mb-16 flex justify-center gap-4">
+        <div className="mt-8 mb-16 flex flex-col sm:flex-row justify-center gap-4">
           <ReportSummaryModal
             reportTitle="Informe de Inspección - Vigas"
             projectInfo={projectInfo}

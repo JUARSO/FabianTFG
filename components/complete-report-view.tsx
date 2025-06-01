@@ -66,12 +66,12 @@ export function CompleteReportView({
   }
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 p-6 bg-white">
+    <div className="max-w-4xl mx-auto space-y-8 p-4 sm:p-6 bg-white">
       {/* Encabezado del reporte */}
       <div className="text-center space-y-4 border-b pb-6">
         <div className="space-y-2">
           <p className="text-sm text-gray-600">Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</p>
-          <h1 className="text-3xl font-bold text-gray-900">{reportTitle}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{reportTitle}</h1>
           <p className="text-sm text-gray-500">
             Fecha de generación:{" "}
             {new Date().toLocaleDateString("es-ES", {
@@ -83,22 +83,22 @@ export function CompleteReportView({
         </div>
 
         {/* Resumen ejecutivo */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <div className="text-center p-4 bg-gray-50 rounded-lg">
-            <div className="text-2xl font-bold text-gray-800">{totalItems}</div>
-            <div className="text-sm text-gray-600">Total Items</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mt-6">
+          <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
+            <div className="text-xl sm:text-2xl font-bold text-gray-800">{totalItems}</div>
+            <div className="text-xs sm:text-sm text-gray-600">Total Items</div>
           </div>
-          <div className="text-center p-4 bg-green-50 rounded-lg">
-            <div className="text-2xl font-bold text-green-700">{acceptedItems}</div>
-            <div className="text-sm text-green-700">Aceptados</div>
+          <div className="text-center p-2 sm:p-4 bg-green-50 rounded-lg">
+            <div className="text-xl sm:text-2xl font-bold text-green-700">{acceptedItems}</div>
+            <div className="text-xs sm:text-sm text-green-700">Aceptados</div>
           </div>
-          <div className="text-center p-4 bg-red-50 rounded-lg">
-            <div className="text-2xl font-bold text-red-700">{rejectedItems}</div>
-            <div className="text-sm text-red-700">Rechazados</div>
+          <div className="text-center p-2 sm:p-4 bg-red-50 rounded-lg">
+            <div className="text-xl sm:text-2xl font-bold text-red-700">{rejectedItems}</div>
+            <div className="text-xs sm:text-sm text-red-700">Rechazados</div>
           </div>
-          <div className="text-center p-4 bg-yellow-50 rounded-lg">
-            <div className="text-2xl font-bold text-yellow-700">{pendingItems}</div>
-            <div className="text-sm text-yellow-700">Pendientes</div>
+          <div className="text-center p-2 sm:p-4 bg-yellow-50 rounded-lg">
+            <div className="text-xl sm:text-2xl font-bold text-yellow-700">{pendingItems}</div>
+            <div className="text-xs sm:text-sm text-yellow-700">Pendientes</div>
           </div>
         </div>
       </div>
@@ -106,13 +106,13 @@ export function CompleteReportView({
       {/* Información del Proyecto */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
             <Building className="h-5 w-5" />
             Información del Proyecto
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Building className="h-4 w-4 text-gray-500 mt-1" />
@@ -171,10 +171,10 @@ export function CompleteReportView({
       {/* Configuración Específica */}
       <Card>
         <CardHeader>
-          <CardTitle>Configuración Específica de la Inspección</CardTitle>
+          <CardTitle className="text-lg sm:text-xl">Configuración Específica de la Inspección</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
             <p className="text-gray-800">{renderSpecificConfig()}</p>
           </div>
         </CardContent>
@@ -183,7 +183,7 @@ export function CompleteReportView({
       {/* Lista de Verificación Detallada */}
       <Card>
         <CardHeader>
-          <CardTitle>1. Lista de Verificación - Resultados Detallados</CardTitle>
+          <CardTitle className="text-lg sm:text-xl">1. Lista de Verificación - Resultados Detallados</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -206,8 +206,8 @@ export function CompleteReportView({
               }
 
               return (
-                <div key={item.id} className={`border rounded-lg p-4 ${statusColor}`}>
-                  <div className="flex items-start justify-between mb-3">
+                <div key={item.id} className={`border rounded-lg p-3 sm:p-4 ${statusColor}`}>
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-2">
                     <div className="flex items-start gap-3 flex-1">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center font-bold text-sm">
                         {item.id}
@@ -243,16 +243,18 @@ export function CompleteReportView({
       {suggestions.length > 0 && (
         <Card>
           <CardHeader>
-            <CardTitle>2. Sugerencias para Tener en Cuenta</CardTitle>
+            <CardTitle className="text-lg sm:text-xl">2. Sugerencias para Tener en Cuenta</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
               {suggestions.map((suggestion, index) => (
                 <div key={suggestion.id} className="border rounded-lg overflow-hidden">
-                  <div className="bg-blue-50 p-4 border-b">
-                    <h3 className="font-bold text-lg text-blue-900">Sugerencia {String.fromCharCode(65 + index)}</h3>
+                  <div className="bg-blue-50 p-3 sm:p-4 border-b">
+                    <h3 className="font-bold text-base sm:text-lg text-blue-900">
+                      Sugerencia {String.fromCharCode(65 + index)}
+                    </h3>
                   </div>
-                  <div className="p-4">
+                  <div className="p-3 sm:p-4">
                     <div className="prose max-w-none">
                       <p className="text-gray-800 whitespace-pre-line leading-relaxed">{suggestion.text}</p>
                     </div>
@@ -295,12 +297,12 @@ export function CompleteReportView({
       {observations.length > 0 && (
         <Card>
           <CardHeader>
-            <CardTitle>3. Observaciones Generales</CardTitle>
+            <CardTitle className="text-lg sm:text-xl">3. Observaciones Generales</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               {observations.map((observation, index) => (
-                <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                <div key={index} className="border rounded-lg p-3 sm:p-4 bg-gray-50">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">
                       {String.fromCharCode(65 + index)}
@@ -320,10 +322,10 @@ export function CompleteReportView({
       {images.length > 0 && (
         <Card>
           <CardHeader>
-            <CardTitle>4. Anexos - Documentación Fotográfica</CardTitle>
+            <CardTitle className="text-lg sm:text-xl">4. Anexos - Documentación Fotográfica</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {images.map((image, index) => (
                 <div key={image.id} className="border rounded-lg overflow-hidden bg-white shadow-sm">
                   <div className="relative aspect-video">
@@ -332,7 +334,7 @@ export function CompleteReportView({
                       Imagen {index + 1}
                     </div>
                   </div>
-                  <div className="p-4">
+                  <div className="p-3 sm:p-4">
                     <h4 className="font-bold text-gray-900 mb-2">{image.title}</h4>
                     {image.description && <p className="text-sm text-gray-600 leading-relaxed">{image.description}</p>}
                   </div>
