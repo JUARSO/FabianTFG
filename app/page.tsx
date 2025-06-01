@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { FileText, Building, FocusIcon as Foundation, Layers, Hammer } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const reportTypes = [
   {
@@ -41,8 +42,13 @@ export default function HomePage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Sistema de Reportes de Inspección</h1>
-          <p className="text-lg text-gray-600">Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</p>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <Image src="/images/armabloque-logo.jpeg" alt="ARMABLOQUE" width={80} height={80} className="rounded-lg" />
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-2">Sistema de Reportes de Inspección</h1>
+              <p className="text-xl text-gray-600 mb-1">ARMABLOQUE SISTEMAS DE CONSTRUCCION</p>
+            </div>
+          </div>
         </div>
 
         {/* Report Type Selector */}
@@ -71,18 +77,6 @@ export default function HomePage() {
               </Card>
             )
           })}
-        </div>
-
-        {/* Recent Reports Section */}
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Reportes Recientes</h2>
-          <Card>
-            <CardContent className="p-6">
-              <p className="text-gray-500 text-center">
-                No hay reportes recientes. Crea tu primer reporte seleccionando un tipo arriba.
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>

@@ -309,7 +309,7 @@ const ReportPDFDocument = ({
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.companyInfo}>Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</Text>
+          <Text style={styles.companyInfo}>ARMABLOQUE</Text>
           <Text style={styles.title}>{reportTitle}</Text>
         </View>
 
@@ -368,7 +368,7 @@ const ReportPDFDocument = ({
       {suggestions.length > 0 && (
         <Page size="A4" style={styles.page}>
           <View style={styles.header}>
-            <Text style={styles.companyInfo}>Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</Text>
+            <Text style={styles.companyInfo}>ARMABLOQUE</Text>
           </View>
 
           <Text style={styles.sectionTitle}>2) Sugerencias para tener en cuenta</Text>
@@ -396,7 +396,7 @@ const ReportPDFDocument = ({
       {observations.length > 0 && (
         <Page size="A4" style={styles.page}>
           <View style={styles.header}>
-            <Text style={styles.companyInfo}>Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</Text>
+            <Text style={styles.companyInfo}>ARMABLOQUE</Text>
           </View>
 
           <Text style={styles.sectionTitle}>3) Observaciones</Text>
@@ -414,7 +414,7 @@ const ReportPDFDocument = ({
       {images.length > 0 && (
         <Page size="A4" style={styles.page}>
           <View style={styles.header}>
-            <Text style={styles.companyInfo}>Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</Text>
+            <Text style={styles.companyInfo}>ARMABLOQUE</Text>
           </View>
 
           <Text style={styles.sectionTitle}>4) Anexos</Text>

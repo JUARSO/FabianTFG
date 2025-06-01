@@ -7,21 +7,13 @@ export function useMediaQuery(query: string): boolean {
 
   useEffect(() => {
     const media = window.matchMedia(query)
-
-    // Actualizar el estado inicialmente
-    setMatches(media.matches)
-
-    // Definir callback para actualizar el estado cuando cambie
-    const listener = () => {
+    if (media.matches !== matches) {
       setMatches(media.matches)
     }
-
-    // Agregar listener
-    media.addEventListener("change", listener)
-
-    // Limpiar listener
-    return () => media.removeEventListener("change", listener)
-  }, [query])
+    const listener = () => setMatches(media.matches)
+    window.addEventListener("resize", listener)
+    return () => window.removeEventListener("resize", listener)
+  }, [matches, query])
 
   return matches
 }

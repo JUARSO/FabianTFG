@@ -11,27 +11,21 @@ interface ObservationsFormProps {
 }
 
 export function ObservationsForm({ observations, onChange }: ObservationsFormProps) {
-  const defaultObservations = [
-    "Se recomienda que, en las reparaciones de: pasantes, relleno de celdas vacías, hormigueros en elementos de concreto como vigas y columnas, se reparen con mortero expansivo tipo Maxibed Grout Standard de Intaco o similar.",
-    "Se recomienda que, en los anclajes de pernos y varillas, se utilice un adhesivo epóxico tipo Anchormax 590 de Intaco o similar.",
-  ]
-
-  const currentObservations = observations.length > 0 ? observations : defaultObservations
-
+  // Eliminar los comentarios por defecto
   const updateObservation = (index: number, value: string) => {
-    const newObservations = [...currentObservations]
+    const newObservations = [...observations]
     newObservations[index] = value
     onChange(newObservations)
   }
 
   const addObservation = () => {
-    onChange([...currentObservations, ""])
+    onChange([...observations, ""])
   }
 
   const removeObservation = (index: number) => {
-    const newObservations = [...currentObservations]
+    const newObservations = [...observations]
     newObservations.splice(index, 1)
-    onChange(newObservations.length > 0 ? newObservations : [])
+    onChange(newObservations)
   }
 
   return (
@@ -46,7 +40,7 @@ export function ObservationsForm({ observations, onChange }: ObservationsFormPro
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        {currentObservations.map((observation, index) => (
+        {observations.map((observation, index) => (
           <div key={index} className="flex space-x-2">
             <div className="flex-1">
               <div className="flex items-center mb-2">
@@ -69,7 +63,7 @@ export function ObservationsForm({ observations, onChange }: ObservationsFormPro
             </div>
           </div>
         ))}
-        {currentObservations.length === 0 && (
+        {observations.length === 0 && (
           <p className="text-gray-500 text-center py-4">
             No hay observaciones. Haga clic en "Agregar Observación" para comenzar.
           </p>

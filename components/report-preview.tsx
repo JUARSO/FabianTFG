@@ -37,7 +37,7 @@ export function ReportPreview({
         {/* Report Title */}
         <div className="text-center">
           <h2 className="text-xl font-bold">{title}</h2>
-          <p className="text-gray-600">Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</p>
+          <p className="text-gray-600">ARMABLOQUE</p>
         </div>
 
         {/* Project Info Summary */}

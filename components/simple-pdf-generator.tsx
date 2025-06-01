@@ -246,7 +246,7 @@ const SimplePDFDocument = ({
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.companyInfo}>Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</Text>
+          <Text style={styles.companyInfo}>ARMABLOQUE</Text>
           <Text style={styles.title}>{reportTitle}</Text>
           <Text style={styles.companyInfo}>Fecha de generación: {new Date().toLocaleDateString()}</Text>
         </View>
@@ -375,7 +375,7 @@ const SimplePDFDocument = ({
       <Page size="A4" style={styles.page}>
         {/* Header de segunda página */}
         <View style={styles.header}>
-          <Text style={styles.companyInfo}>Belén-Heredia, Costa Rica. T: +(506) 40 00 13 10</Text>
+          <Text style={styles.companyInfo}>ARMABLOQUE</Text>
           <Text style={styles.title}>{reportTitle} - Página 2</Text>
         </View>
 
