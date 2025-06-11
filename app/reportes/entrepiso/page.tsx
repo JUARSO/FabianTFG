@@ -206,10 +206,30 @@ export default function EntrepisoReportPage() {
                   Informe de Inspección - Entrepiso
                 </h1>
                 <p className="text-sm text-gray-500">ARMABLOQUE</p>
+                <div className="flex flex-col sm:flex-row items-center gap-2">
+                  <ReportSummaryModal
+                    reportTitle="Informe de Inspección - Entrepiso"
+                    projectInfo={projectInfo}
+                    specificConfig={entrepisoConfig}
+                    checklist={checklist}
+                    suggestions={suggestions}
+                    observations={observations}
+                    images={images}
+                  />
+                  <ClientPDFGenerator
+                    reportTitle="Informe de Inspección - Entrepiso"
+                    projectInfo={projectInfo}
+                    specificConfig={entrepisoConfig}
+                    checklist={checklist}
+                    suggestions={suggestions}
+                    observations={observations}
+                    images={images}
+                    returnUrl="/reportes/entrepiso"
+                  />
+                </div>
               </div>
             </div>
           </div>
-
         </div>
 
         <div className="text-center mb-8 p-4 bg-white rounded-lg shadow">
